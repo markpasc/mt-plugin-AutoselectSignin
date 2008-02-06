@@ -13,8 +13,8 @@ function visited(el) {
 }
 
 var services = [
-    [ 'LiveJournal', 'http://www.livejournal.com/'      ],
     [ 'Vox',         'http://www.vox.com/'              ],
+    [ 'LiveJournal', 'http://www.livejournal.com/'      ],
     [ 'TypeKey',     'http://www.typekey.com/t/typekey' ]
 ];
 
@@ -27,15 +27,11 @@ function yays(ev) {
     var a = document.createElement('a');
     test_links.appendChild(a);
 
-    best_auth = 'mt';
-
     for (var i = 0; i < services.length; i++) {
         a.setAttribute('href', services[i][1]);
         if (visited(a))
-            best_auth = services[i][0];
+            signinToggle(services[i][0]);
     }
-
-    signinToggle(best_auth);
 }
 
 TC.attachLoadEvent(yays);
