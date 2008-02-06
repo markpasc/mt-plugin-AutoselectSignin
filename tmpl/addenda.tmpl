@@ -1,0 +1,44 @@
+<style type="text/css">
+#test-links { height: 1; width: 1; overflow: hidden; }
+#test-links a { color: #000 !important; }
+#test-links a:visited { color: #2b97b8 !important; }
+</style>
+
+<script type="text/javascript">
+<!--
+
+function visited(el) {
+    var style = document.defaultView.getComputedStyle(el, null);
+    return style.color == 'rgb(43, 151, 184)' ? true : false;
+}
+
+var services = [
+    [ 'LiveJournal', 'http://www.livejournal.com/'      ],
+    [ 'Vox',         'http://www.vox.com/'              ],
+    [ 'TypeKey',     'http://www.typekey.com/t/typekey' ]
+];
+
+function yays(ev) {
+
+    var test_links = document.createElement('div');
+    test_links.setAttribute('id', 'test-links');
+    document.body.appendChild(test_links);
+
+    var a = document.createElement('a');
+    test_links.appendChild(a);
+
+    best_auth = 'mt';
+
+    for (var i = 0; i < services.length; i++) {
+        a.setAttribute('href', services[i][1]);
+        if (visited(a))
+            best_auth = services[i][0];
+    }
+
+    signinToggle(best_auth);
+}
+
+TC.attachLoadEvent(yays);
+
+// -->
+</script>

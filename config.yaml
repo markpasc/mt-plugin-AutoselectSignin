@@ -1,0 +1,11 @@
+name: 'Autoselect Sign-in'
+key:  AutoselectSignin
+id:   AutoselectSignin
+description: Automatically selects a likely authentication service based on visited link sniffing.
+version: 1.0
+author_name: Mark Paschal
+author_link: http://markpasc.org/mark/
+
+callbacks:
+    MT::App::Comments::template_param: $AutoselectSignin::AutoselectSignin::Plugin::add_awesome
+
